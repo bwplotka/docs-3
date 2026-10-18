@@ -155,7 +155,7 @@ Give a custom producer `propose` permission, which includes `read`. Keep review 
 ### Extract FAQs from agent usage in Redis Agent Memory
 
 1. [Record session events in Redis Agent Memory](/content/develop/ai/context-engine/agent-memory/developer-guide.md#work-with-session-memory). Include the user's questions and the agent's responses under the correct user and conversation identities. Retrieving playbook knowledge alone does not record the interaction in Redis Agent Memory.
-1. Ask your administrator to configure the source connection and extraction worker. This includes a generation model, worker access to both products, and an extraction binding between the source store and destination playbook. Proposal permissions alone do not enable extraction.
+1. Ask your administrator to [configure the source connection and extraction worker]({{< relref "/operate/iris/agent-playbook/self-managed/extraction" >}}). This includes a generation model, worker access to both products, and an extraction binding between the source store and destination playbook. Proposal permissions alone do not enable extraction.
 1. Have the administrator enable the binding after it becomes ready and the worker is healthy. A binding selects a whole store in the same tenant as the playbook. There is currently one binding per playbook, with no per-binding namespace selection.
 1. Let a representative conversation become idle. The binding's default idle window is 30 minutes, and its scan cadence is five minutes. These intervals determine eligibility; they are not a completion-time guarantee.
 1. [Inspect the proposal inbox](/content/develop/ai/context-engine/agent-playbook/proposals.md#find-proposals-to-review) and read the candidate's creation source and attached evidence.
